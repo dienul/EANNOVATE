@@ -27,18 +27,9 @@ var upload = multer({ storage : storage }).array('userPhoto',2);
 //     res.sendFile(__dirname + "/index.html");
 // });
 
+app.get('/', Product.list)
 app.post('/', upload, Product.create)
 
-// app.post('/',function(req,res){
-//     upload(req,res,function(err) {
-//         // console.log(req.body);
-//         // console.log(req.files);
-//         if(err) {
-//             return res.end("Error uploading file.");
-//         }
-//         res.end("File is uploaded");
-//     });
-// },Product.create);
 
 
 app.listen(port, function () {
