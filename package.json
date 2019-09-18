@@ -1,0 +1,27 @@
+{
+  "name": "eannovate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dienul/EANNOVATE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dienul/EANNOVATE/issues"
+  },
+  "homepage": "https://github.com/dienul/EANNOVATE#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "mysql": "^2.17.1",
+    "simple-random-id": "^1.0.1"
+  }
+}
