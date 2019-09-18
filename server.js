@@ -25,13 +25,26 @@ class Product {
         let id = random(32)
         let name = req.body.name
         let price = req.body.price
-        
-        console.log(req.body);
-        // const product = { id: `${id}`, name: name, price: price, modify_date: new Date(), create_date: new Date() };
-        // connection.query('INSERT INTO T_Product SET ?', product, (err, res) => {
-        //     if (err) throw err;
-        //     console.log('Last insert ID:', res.insertId);
-        // });
+        let picture = req.files
+        // console.log(price);
+        // console.log(req.files);
+        const product = { id: `${id}`, name: name, price: price, modify_date: new Date(), create_date: new Date() };
+        connection.query('INSERT INTO T_Product SET ?', product, (err, res) => {
+            if (err) throw err;
+            console.log('Last insert ID:', res.insertId);
+        });
+
+        picture.forEach(element => { 
+            // console.log(element.originalname);
+            let img = element.originalname
+            let id_photo = random(32)
+            const image = { id: `${id}`, product_id: id_photo, img: img, modify_date: new Date(), create_date: new Date() };
+            connection.query('INSERT INTO AT_ProductImages SET ?', product, (err, res) => {
+                if (err) throw err;
+                console.log('Last insert ID:', res.insertId);
+            });
+        });
+
     }
 }
 
