@@ -59,6 +59,26 @@ class Product {
         });
         // console.log(data);
     }
+
+    static delete(req, res) {
+        let id_img = req.body.id
+        connection.query(`DELETE FROM AT_ProductImages WHERE product_id = '${id_img}'`, (err, result) => {
+            if (err) throw err;
+
+
+            console.log(result);
+            // res.json(result)
+            connection.query(`DELETE FROM T_Product WHERE id = '${id_img}'`, (err, result) => {
+                if (err) throw err;
+
+
+                console.log(result);
+                res.json(result)
+            });
+        });
+
+
+    }
 }
 
 

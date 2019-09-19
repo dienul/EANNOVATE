@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
     }
 });
 
-var upload = multer({ storage : storage }).array('userPhoto',2);
+var upload = multer({ storage: storage }).array('userPhoto', 2);
 
 // app.get('/',function(req,res){
 //     res.sendFile(__dirname + "/index.html");
@@ -29,6 +29,7 @@ var upload = multer({ storage : storage }).array('userPhoto',2);
 
 app.get('/', Product.list)
 app.post('/', upload, Product.create)
+app.delete('/', Product.delete)
 
 
 
