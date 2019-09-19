@@ -67,7 +67,6 @@ class Product {
 
 
             console.log(result);
-            // res.json(result)
             connection.query(`DELETE FROM T_Product WHERE id = '${id_img}'`, (err, result) => {
                 if (err) throw err;
 
@@ -84,13 +83,10 @@ class Product {
         let name = req.body.name
         let price = req.body.price
         let picture = req.files
-        // console.log(price);
-        // console.log(req.files);
 
         connection.query(`UPDATE T_Product SET name = '${name}', price = '${price}' Where id = '${id}'`, (err, res) => {
             if (err) throw err;
             console.log('Last insert ID:', res.insertId);
-            // res.json(res.insertId)
 
             connection.query(`
             SELECT * FROM AT_ProductImages
@@ -105,8 +101,6 @@ class Product {
                             console.log(result);
 
                             picture.forEach(element => {
-                                // console.log(element.originalname);
-                                // let img = req.files[0].originalname
                                 let img = element.originalname
                                 let id_photo = random(32)
                                 const image = { id: `${id_photo}`, product_id: `${id}`, img: img, modify_date: new Date(), create_date: new Date() };
@@ -119,8 +113,6 @@ class Product {
                         });
                     } else {
                         picture.forEach(element => {
-                            // console.log(element.originalname);
-                            // let img = req.files[0].originalname
                             let img = element.originalname
                             let id_photo = random(32)
                             const image = { id: `${id_photo}`, product_id: `${id}`, img: img, modify_date: new Date(), create_date: new Date() };
